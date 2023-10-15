@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       if (isAuthenticated) {
         this.router.navigate(['/post']);
       } else {
-        this.errorMsg = 'Unauthorized user';
+        this.errorMsg = 'Unauthorized user register yourself';
       }
     });
   }
