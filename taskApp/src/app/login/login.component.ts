@@ -16,11 +16,13 @@ export class LoginComponent implements OnInit {
   onSubmit(data){
     console.log('user data',data.value);
     
-    if (this.authService.authenticate(data.value.email, data.value.password)) {
-      this.router.navigate(['/post']);
-    } else {
-      this.errorMsg = 'Unauthorised user';
-    }
+    this.authService.authenticate(data.value.email, data.value.password).subscribe((isAuthenticated) => {
+      if (isAuthenticated) {
+        this.router.navigate(['/post']);
+      } else {
+        this.errorMsg = 'Unauthorized user';
+      }
+    });
   }
   }
 
