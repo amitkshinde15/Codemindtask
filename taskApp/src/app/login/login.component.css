@@ -1,0 +1,15 @@
+.disabled-button {
+    background-color: gray;
+    
+  }
+  .form-control.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+.text-danger{
+    text-align: right;
+    font-size: 15px;
+    font-style: italic;
+    display: block; 
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
