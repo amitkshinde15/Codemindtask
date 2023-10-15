@@ -20,7 +20,7 @@ export class PostComponent implements OnInit {
     if (file) {
       this.selectedFile = file;
 
-      // Display the selected image
+      
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.selectedFileUrl = e.target.result;
