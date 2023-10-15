@@ -5,12 +5,12 @@
           
           <!-- Description Box -->
           <div class="form-group mb-3">
-            <textarea class="form-control" placeholder="Enter your description" name="description"></textarea>
+            <textarea class="form-control" #textData placeholder="Enter your description" name="description"></textarea>
           </div>
           
           <!-- Image Upload -->
           <div class="form-group d-flex align-items-center">
-            <button type="submit" class="btn btn-primary mr-2">Post</button>
+            <button type="submit" class="btn btn-primary mr-2" (click)="postData(textData)">Post</button>
             <input type="file" id="imageUpload" (change)="onFileSelected($event)" accept="image/*">
           </div>
           <div class="mb-2">
@@ -19,6 +19,9 @@
           <!-- Display Uploaded Image -->
           <div *ngIf="selectedFile">
             <img [src]="selectedFileUrl" alt="Uploaded Image" class="img-fluid mt-3">
+          </div>
+          <div>
+            {{distription}}
           </div>
         </form>
       </div>

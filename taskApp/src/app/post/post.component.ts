@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
+  distription;
   constructor() { }
 
   ngOnInit() {
@@ -28,5 +28,8 @@ export class PostComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-
+  postData(data){
+    console.log('post data', data.value);
+    this.distription = data.value;
+  }
 }
