@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(data){
-    console.log(data.value);
-    const { email, password } = data.value;
-    if (this.authService.authenticate(email, password)) {
+    console.log('user data',data.value);
+    
+    if (this.authService.authenticate(data.value.email, data.value.password)) {
       this.router.navigate(['/post']);
     } else {
       this.errorMsg = 'Unauthorised user';
