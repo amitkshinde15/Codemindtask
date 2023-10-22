@@ -21,18 +21,15 @@ export class AuthService {
           this.authenticatedUser = user;
           return true;
         }
-
+        else {
         return false;
+        }
       })
     );
   }
 
   isLoggedIn(): boolean {
     return this.authenticatedUser !== null;
-  }
-
-  getUser(): any {
-    return this.authenticatedUser;
   }
 
 }

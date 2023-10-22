@@ -1,0 +1,31 @@
+.red-border {
+    color: red;   
+  }
+ /* Add this CSS to your component's CSS file or a global CSS file */
+.image-container {
+  max-width: 100%; /* Adjust the maximum width as needed */
+  max-height: 100%; /* Adjust the maximum height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.like-icon {
+  font-size: 24px;
+  color: black; /* Default color */
+  cursor: pointer;
+  transition: color 0.3s; /* Add a transition for smooth color change */
+}
+
+.likeClicked {
+  color: red; /* Color when the heart is clicked */
+}
+
+

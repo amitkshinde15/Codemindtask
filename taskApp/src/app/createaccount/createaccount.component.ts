@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./createaccount.component.css']
 })
 export class CreateaccountComponent implements OnInit {
-  @ViewChild('registerUser', { static: false }) registerUser:NgForm;
+registerUser:NgForm;
 
   constructor(private userserice: UserService) { }
 

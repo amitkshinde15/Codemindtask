@@ -1,30 +1,50 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <form class="p-4 shadow text-center">
-          
-          <!-- Description Box -->
-          <div class="form-group mb-3">
-            <textarea class="form-control" #textData placeholder="Enter your description" name="description"></textarea>
-          </div>
-          
-          <!-- Image Upload -->
-          <div class="form-group d-flex align-items-center">
-            <button type="submit" class="btn btn-primary mr-2" (click)="postData(textData)">Post</button>
-            <input type="file" id="imageUpload" (change)="onFileSelected($event)" accept="image/*">
-          </div>
-          <div class="mb-2">
-            
-          </div>
-          <!-- Display Uploaded Image -->
-          <div *ngIf="selectedFile">
-            <img [src]="selectedFileUrl" alt="Uploaded Image" class="img-fluid mt-3">
-          </div>
-          <div>
-            {{distription}}
-          </div>
-        </form>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="form-group mb-3">
+        <textarea class="form-control" placeholder="Enter your description" [(ngModel)]="postDescription"></textarea>
       </div>
+
+      <!-- Image Upload -->
+      <div class="row justify-content-center mb-2">
+        <div class="form-group d-flex align-items-center">
+          <button type="submit" class="btn btn-primary mr-2" (click)="onPost()">Post</button>
+          <input type="file" (change)="onImageSelected($event)">
+        </div>
+      </div>
+
+      <!-- Display Posted Content -->
+      <div class="posted-content" *ngIf="showPostedContent">
+        <h4>Posted Content:</h4>
+        <div class="image-container">
+          <img [src]="postedImage" alt="Posted Image" *ngIf="postedImage">
+        </div>
+        <p>{{ postDescription }}</p>
+      </div>
+      <!-- Display Posted Posts -->
+<div class="posted-content" *ngIf="posts.length > 0">
+  <h4>Posted Posts:</h4>
+  <div *ngFor="let post of posts">
+    <div class="image-container">
+      <img [src]="post.image" alt="Posted Image">
+    </div>
+    <p>{{ post.description }}</p>
+    <div class="post-interaction">
+      <i
+        class="bi bi-heart like-icon"
+        [class.likeClicked]="post.isLiked"
+    (click)="toggleLike(post)"
+      ></i>
+      <input type="text" placeholder="Write a comment" [(ngModel)]="commentText">
+      <button (click)="addComment(post, commentText)" class="comment-button">Comment</button>
+    </div>
+    <div *ngIf="post.likesCount > 0" class="likes-count">{{ post.likesCount }} Likes</div>
+    <div *ngIf="post.comments.length > 0" class="comments">
+      <div *ngFor="let comment of post.comments">{{ comment }}</div>
+    </div>
+
+  </div>
+</div>
     </div>
   </div>
-  
+</div>
